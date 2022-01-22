@@ -10,4 +10,9 @@ public class AddController {
 	public String add() {
 		return "result";
 	}
+	
+	@RequestMapping("/about")
+	public String aboutPage() {
+		return "about";
+	}
 }
