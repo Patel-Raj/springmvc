@@ -1,10 +1,14 @@
 package springmvc.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import springmvc.model.User;
 
 @Controller
 public class ContactController {
@@ -15,11 +19,7 @@ public class ContactController {
 	}
 	
 	@RequestMapping(path="/processRequest",method=RequestMethod.POST)
-	public ModelAndView process(@RequestParam("name") String name, @RequestParam("pass") String pass) {
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("name", name);
-		modelAndView.addObject("pass", pass);
-		modelAndView.setViewName("success");
-		return modelAndView;
+	public String process(@ModelAttribute User user, Model model) {
+		return "success";
 	}
 }

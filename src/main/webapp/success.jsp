@@ -10,8 +10,8 @@
 <body>
 Data saved in backend!
 
-Name is ${name}
-Pass is ${pass}
+Name is ${user.name}
+Pass is ${user.pass}
 
 
 </body>
