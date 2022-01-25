@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import springmvc.model.User;
 
@@ -25,9 +26,11 @@ public class ContactController {
 	
 	
 	@RequestMapping("/one")
-	public String one() {
+	public RedirectView one() {
 		System.out.println("One called");
-		return "redirect:/two";
+		RedirectView redirectView = new RedirectView();
+		redirectView.setUrl("two");
+		return redirectView;
 	}
 	
 	@RequestMapping("/two")
