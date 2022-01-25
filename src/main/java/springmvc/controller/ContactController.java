@@ -22,4 +22,17 @@ public class ContactController {
 	public String process(@ModelAttribute User user, Model model) {
 		return "success";
 	}
+	
+	
+	@RequestMapping("/one")
+	public String one() {
+		System.out.println("One called");
+		return "redirect:/two";
+	}
+	
+	@RequestMapping("/two")
+	public String two() {
+		System.out.println("Two called");
+		return "redirect:/contact";
+	}
 }
