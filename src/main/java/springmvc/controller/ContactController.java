@@ -38,4 +38,13 @@ public class ContactController {
 		System.out.println("Two called");
 		return "redirect:/contact";
 	}
+	
+	@RequestMapping("/search")
+	public RedirectView search(@RequestParam("text") String text) {
+		System.out.println(text);
+		String googleUrl = "https://www.google.com/search?q=" + text.replace(' ', '+');
+		RedirectView redirectView = new RedirectView();
+		redirectView.setUrl(googleUrl);
+		return redirectView;
+	}
 }
